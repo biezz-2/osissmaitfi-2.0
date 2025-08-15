@@ -4,74 +4,40 @@ Website resmi OSIS SMAIT Fithrah Insani dengan tema "Bhaskara 2025 - Bermanfaat 
 
 ## Teknologi yang Digunakan
 
-- **Next.js 14** - React framework dengan App Router
-- **TypeScript** - Type-safe JavaScript
-- **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **React Icons** - Icon library
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+- React Icons
 
-## Instalasi
+## Prasyarat
 
-1. Clone repository ini
-2. Install dependencies:
+- Node.js 18+ (LTS)
+- npm 9+
+- Git
+
+## Instalasi (lokal)
+
+1. Clone repository:
+
    ```bash
-   npm install
+   git clone git@github.com:biezz-2/osissmaitfi-2.0.git
+   cd osissmaitfi-2.0
    ```
 
-3. Tambahkan gambar-gambar yang diperlukan ke folder `public/images/`:
-   - `logo.png` - Logo OSIS
-   - `hero-bg.jpg` - Background hero section
-   - `gallery-1.jpg` sampai `gallery-4.jpg` - Foto galeri
-   - `our-goals-placeholder.png` - Gambar untuk section goals
-   - `placeholder-about.svg` - Placeholder untuk halaman about
-   - `placeholder-programs.svg` - Placeholder untuk halaman program kerja
-   
-   Dan ke folder `public/images/team/`:
-   - `KO.JPG`, `WKO.JPG`, `SKTO.JPG`, `BDHRO.JPG` - Foto pengurus inti
-   - `farras.JPG`, `adiba.JPG`, `kafka.JPG`, `adnan.JPG` - Foto kepala departemen
+2. Install dependencies:
 
-4. Jalankan development server:
+   ```bash
+   npm ci
+   ```
+
+3. Jalankan development server:
+
    ```bash
    npm run dev
    ```
 
-5. Buka [http://localhost:3000](http://localhost:3000) di browser
-
-## Struktur Halaman
-
-- **Home** (`/`) - Halaman utama dengan hero, visi, misi, event, goals, dan galeri
-- **About** (`/about`) - Halaman tentang OSIS dengan profil pengurus dan makna simbol
-- **Program Kerja** (`/bidang`) - Halaman program kerja dengan 8 seksi bidang
-- **Our Social Media** (`/our-social-media`) - Halaman media sosial
-- **Foto Anggota** (`/people`) - Halaman foto anggota
-
-### Halaman Seksi Bidang
-- **Seksi Bidang 1** (`/sekbid/sekbid-1`) - Keagamaan dan Kerohanian
-- **Seksi Bidang 2** (`/sekbid/sekbid-2`) - Nasionalisme dan Patriotisme
-- **Seksi Bidang 3** (`/sekbid/sekbid-3`) - Wawasan dan Pengetahuan
-- **Seksi Bidang 4** (`/sekbid/sekbid-4`) - Bahasa dan Literasi
-- **Seksi Bidang 5** (`/sekbid/sekbid-5`) - Bakat dan Kreativitas
-- **Seksi Bidang 6** (`/sekbid/sekbid-6`) - Kebersihan dan Kesehatan
-- **Seksi Bidang 7** (`/sekbid/sekbid-7`) - Kewirausahaan dan Keuangan
-- **Seksi Bidang 8** (`/sekbid/sekbid-8`) - Komunikasi dan Informasi
-
-## Fitur
-
-- Responsive design untuk semua ukuran layar
-- Smooth scrolling navigation
-- Animated sections dengan Framer Motion
-- Mobile-friendly navigation
-- Social media integration
-- YouTube video embed untuk event section
-
-## Customization
-
-Untuk mengubah konten, edit file-file berikut:
-- `app/page.tsx` - Halaman utama
-- `components/VisionCard.tsx` - Konten visi
-- `components/MissionCard.tsx` - Konten misi
-- `components/EventSection.tsx` - Konten event
-- `components/Footer.tsx` - Informasi kontak dan social media
+   Buka http://localhost:3000
 
 ## Build untuk Production
 
@@ -80,9 +46,43 @@ npm run build
 npm start
 ```
 
-## Social Media Links
+Catatan: Next.js akan membangun ke `.next/`. Pastikan `.gitignore` mengecualikan folder tersebut (sudah disertakan).
 
-- Instagram: [@osissmaitfi](https://www.instagram.com/osissmaitfi/)
-- YouTube: [OSIS SMAIT Fithrah Insani](https://www.youtube.com/@osissmaitfithrahinsani9481)
-- TikTok: [@osissmaitfi](https://www.tiktok.com/@osissmaitfi?lang=id-ID)
-- Spotify: [Podcast OSIS](https://open.spotify.com/show/0LNgKunTS7KWBCv3JXFnSw)
+## Deployment
+
+Rekomendasi: deploy ke Vercel (integrasi Next.js native). Alternatif: deploy ke Netlify atau platform container.
+
+- Vercel: import repository dan jalankan build command `npm run build`.
+- Pastikan environment variables (jika ada) ditetapkan di dashboard deployment.
+
+## Continuous Integration
+
+A GitHub Actions workflow telah ditambahkan: `.github/workflows/ci.yml`. Ia akan menjalankan `npm ci` dan `npm run build` pada setiap push atau pull request ke cabang `main`.
+
+## Struktur Halaman
+
+- `app/page.tsx` - Halaman utama
+- `components/*` - Komponen UI
+- `public/images/*` - Asset gambar
+
+## Menambahkan SSH Key & Push
+
+Jika Anda menggunakan SSH remote (disarankan):
+
+```bash
+# jika belum, buat key: (ganti email)
+ssh-keygen -t ed25519 -C "youremail@example.com"
+# tambahkan ke GitHub (Settings > SSH and GPG keys)
+# lalu push:
+git remote add origin git@github.com:biezz-2/osissmaitfi-2.0.git
+git branch -M main
+git push -u origin main
+```
+
+## Lisensi
+
+Proyek ini dilisensikan di bawah MIT License — lihat file `LICENSE`.
+
+## Kontak
+
+Jika perlu bantuan atau ingin kontribusi, buka issue di repository atau hubungi pemilik: https://github.com/biezz-2
